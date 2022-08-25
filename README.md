@@ -112,3 +112,82 @@ FROM Products;
 
 returns the largest price
 ```
+
+### SELECT SUM COUNT AVG
+
+```
+SELECT AVG(Price)
+FROM Products;
+
+SELECT SUM(Price)
+FROM Products;
+
+SELECT COUNT(Price)
+FROM Products;
+
+```
+
+### LIKE
+
+```
+SELECT * FROM Customers
+WHERE CustomerName LIKE 'a__%';
+
+returns all names starting with a and 3 letters
+
+```
+
+### Wildcard Characters in SQL Server
+
+```
+bl% finds bl, black, blue, and blob
+h_t finds hot, hat, and hit
+h[oa]t finds hot and hat, but not hit
+h[^oa]t finds hit, but not hot and hat
+c[a-b]t finds cat and cbt
+
+```
+
+### IN and BETWEEN + WILDCARD + ORDER BY
+
+```
+SELECT * FROM Customers
+WHERE Country NOT IN ('Germany', 'France', 'UK');
+
+SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20;
+
+SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20
+AND ProductName LIKE 'a%'
+OR ProductName LIKE 'b%'
+ORDER BY CategoryID DESC
+
+```
+
+## COMBINING TWO OR MORE TABLES
+
+### UNION AND UNION ALL
+
+```
+SELECT CustomerName FROM Customers
+UNION
+SELECT Address FROM Suppliers
+ORDER BY Address;
+
+returns CustomerName and Address from both tables.
+
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country;
+
+returns the number of customers in each country:
+
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+ORDER BY COUNT(CustomerID) DESC;
+
+returns the number of customers in each country from High to low
+
+```
