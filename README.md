@@ -79,3 +79,36 @@ WHERE column_name IS NOT NULL;
 This returns values that are not null(empty)
 
 ```
+
+### SELECT TOP AND BOTTOM (WITH DESC)
+
+```
+SELECT TOP 3 * FROM Customers
+WHERE Country='Germany' AND City='Berlin';
+
+This returns list of Country Germany and City Berlin
+
+
+SELECT TOP 50 PERCENT * FROM Customers
+ORDER BY Country DESC, CustomerName DESC;
+
+
+SELECT  * FROM Products
+WHERE Price = 18
+ORDER BY ProductName DESC LIMIT 2
+
+```
+
+### MIN(Price) and MAX(Price)
+
+```
+SELECT MIN(Price) AS SmallestPrice
+FROM Products;
+
+returns the smallest price
+
+SELECT MAX(Price) AS LargestPrice
+FROM Products;
+
+returns the largest price
+```
