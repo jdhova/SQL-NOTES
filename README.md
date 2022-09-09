@@ -99,6 +99,29 @@ ORDER BY ProductName DESC LIMIT 2
 
 ```
 
+### CHAINING STATMNTS WITH AND, OR operator
+
+```
+
+SELECT DISTINCT first_name , last_name,city,state_code
+ FROM people
+ WHERE state_code = 'CA'  OR city LIKE '%AN%'
+
+ this retuns values where state_code = CA or city contains letters A & N
+ state_codes can include other states asides from CA
+
+
+SELECT DISTINCT first_name , last_name,city,state_code
+ FROM people
+ WHERE state_code = 'CA'  AND city LIKE '%AN%'
+
+ this retuns values where state_code = CA or city contains letters A & N
+ state_codes WILL NOT include other states asides from CA
+ only CA is returned.
+
+
+```
+
 ### MIN(Price) and MAX(Price)
 
 ```
